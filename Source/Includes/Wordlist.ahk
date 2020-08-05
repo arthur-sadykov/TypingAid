@@ -115,8 +115,7 @@ ReadWordList()
          AddWordToList(A_LoopField,0,"ForceLearn",LearnedWordsCount)
       }
       ParseWords =
-
-      wordsInDB := g_WordListDB.Query("SELECT * FROM Words;")
+	  wordsInDB := g_WordListDB.Query("SELECT * FROM Words;")
       for each, row in wordsInDB.Rows
       {
         word := row[2]
@@ -201,7 +200,6 @@ AddWordToList(AddWord,ForceCountNewOnly,ForceLearn=false, ByRef LearnedWordsCoun
       if (t.Rows.Count() == 0) {
          g_WordListDB.Query("INSERT INTO words (wordindexed, word, count, wordreplacement) VALUES ('" . AddWordIndexTransformed . "','" . wordInLowerCase . "','" . 1 . "','');")
       }
-
       } else {
          if (AddWordReplacement)
          {
