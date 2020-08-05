@@ -268,7 +268,16 @@ ProcessKey(InputChar,EndKey)
          AddWordToList(g_Word, 1)
          ClearAllVars(true)
       } else { 
-         g_Word .= InputChar
+			if InputChar is upper
+			{
+				AddWordToList(g_Word,0)
+				ClearAllVars(true)
+                g_Word := InputChar
+            }
+            else
+            {
+                g_Word .= InputChar
+            }
       }
       
    } else IfNotEqual, g_LastInput_Id, %g_Active_Id%
